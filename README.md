@@ -10,6 +10,7 @@ cd backend-express
 npm install
 ```
 ### 3. Set up env 
+copy .env.example dan ubah namanya menjadi .env
 ```bash
 PORT=**********
 
