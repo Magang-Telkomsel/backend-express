@@ -38,10 +38,10 @@ const register = async (req, res) => {
   try {
     const [emailFound] = await userModel.searchByEmail(email);
     if (emailFound.length > 0) {
-      return res.status(400).json({ message: "email telah terdaftar" });
+      return res.status(400).json({ message: "email telah terdaftar", success: false });
     } else {
       await userModel.addUsers(nama_depan, nama_belakang, email, password);
-      return res.status(200).json({ message: "Akun anda telah terdaftar" });
+      return res.status(200).json({ message: "Akun anda telah terdaftar", success: true });
     }
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
